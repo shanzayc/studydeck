@@ -3,6 +3,9 @@ import { auth, db } from "../firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
+import { useNavigate } from "react-router-dom";
+
+
 function Account() {
     const [user] = useAuthState(auth);
     const [userInfo, setUserInfo] = useState(null);
@@ -46,11 +49,15 @@ function Account() {
         }
     };
 
-    const handleLogout = () => {
-        if (window.confirm("Log out?")) {
-            auth.signOut();
-        }
-    };
+
+const navigate = useNavigate();
+
+const handleLogout = async () => {
+  if (window.confirm("Log out?")) {
+    await auth.signOut();
+    navigate("/login"); // send them to login page
+  }
+};
 
     if (loading) return <p>Loading your account...</p>;
     if (!userInfo) return <p>No user data found.</p>;

@@ -334,11 +334,11 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .deck-page-title {
-  font-size: 2.5rem;
+  font-size: 5rem;
   font-weight: 800;
   color: white;
   margin: 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   letter-spacing: -0.5px;
 }
 
@@ -353,7 +353,7 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
-  margin-top: -1rem;
+  margin-top: -2rem;
 }
 
 .add-flashcard-title {
@@ -642,7 +642,7 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
   position: relative;
   overflow: hidden;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .start-quiz-btn:hover {
@@ -737,6 +737,7 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   font-size: 1rem;
   transition: all 0.3s ease;
   background: #f8fafc;
+  box-sizing: border-box;
 }
 
 .quiz-card input:focus {
@@ -758,6 +759,7 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
   width: 100%;
+  box-sizing: border-box;
 }
 
 .quiz-card button:hover {
@@ -887,6 +889,7 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin-top: 0.75rem;
   width: 100%;
   opacity: 0.8;
+  box-sizing: border-box;
 }
 
 .exit-quiz-btn-bottom:hover {

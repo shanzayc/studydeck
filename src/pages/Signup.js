@@ -50,7 +50,7 @@ function Signup() {
         <form onSubmit={handleSignup}>
           <input
             type="text"
-            placeholder="Full Name"
+            placeholder="First Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
