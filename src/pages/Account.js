@@ -4,6 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 
 function Account() {
@@ -59,7 +61,21 @@ const handleLogout = async () => {
   }
 };
 
-    if (loading) return <p>Loading your account...</p>;
+   if (!user) {
+  return (
+    <div className="not-logged-in">
+      <div className="login-card">
+        <h2>🔒 Please log in</h2>
+        <p>Sign in to view your profile, track decks, and keep your streak alive!</p>
+        <Link to="/login" className="login-btn">Go to Login</Link>
+        <p className="signup-hint">
+          Don’t have an account? <Link to="/signup">Create one</Link>
+        </p>
+      </div>
+    </div>
+  );
+}
+
     if (!userInfo) return <p>No user data found.</p>;
 
     return (

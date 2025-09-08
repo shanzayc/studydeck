@@ -12,7 +12,8 @@ function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");
+      // ✅ redirect to studyroom after login
+      navigate("/studyroom");
     } catch (error) {
       alert(error.message);
     }
@@ -28,19 +29,20 @@ function Login() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <button type="submit">Log In</button>
         </form>
       </div>
     </div>
   );
-
 }
 
 export default Login;
