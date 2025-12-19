@@ -57,6 +57,24 @@ interface with structured decks and quiz feedback to support consistent studying
 
 ---
 
+## Screenshots
+
+### Deck Overview
+![Deck Overview](screenshots/deckOverview.png)
+
+### Quiz Mode
+![Quiz Input](screenshots/quizInput.png)
+
+### Correct Answer Feedback
+![Correct Answer](screenshots/correctQuestion.png)
+
+### Incorrect Answer Feedback
+![Incorrect Answer](screenshots/incorrectQuestion.png)
+
+### Quiz Results
+![Quiz Results](screenshots/quizResults.png)
+
+
 ## Architecture Overview
 
 - The frontend is a single-page React application using React Router.
