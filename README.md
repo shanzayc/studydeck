@@ -2,7 +2,7 @@
 
 **StudyDeck** is a flashcard web application that helps users create study decks, add flashcards, and practice using an interactive quiz mode. The app uses Firebase for authentication and data storage, and is deployed on AWS using S3 and CloudFront.
 
-## Why StudyDeck?
+# Why StudyDeck?
 
 **StudyDeck is designed to help students study more effectively using active recall.
 Unlike static notes, flashcards force learners to retrieve information from memory,
