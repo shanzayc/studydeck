@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase/config";
+import { getDoc } from "firebase/firestore";
+
 import {
   collection,
   addDoc,
@@ -28,6 +30,8 @@ function DeckPage() {
   const [correctCount, setCorrectCount] = useState(0);
   const [quizDone, setQuizDone] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [showAnswerAfterIncorrect, setShowAnswerAfterIncorrect] = useState(true);
+
   const [isCorrect, setIsCorrect] = useState(false);
 
   const loadFlashcards = async () => {
@@ -84,10 +88,10 @@ function DeckPage() {
   const handleSubmitAnswer = () => {
     const current = flashcards[quizIndex];
     const correct = userAnswer.trim().toLowerCase() === current.answer.trim().toLowerCase();
-    
+
     setIsCorrect(correct);
     setShowFeedback(true);
-    
+
     if (correct) {
       setCorrectCount((prev) => prev + 1);
     }
@@ -104,6 +108,19 @@ function DeckPage() {
       }
     }, 1500);
   };
+
+  const loadStudySettings = async () => {
+    const userRef = doc(db, "users", user.uid);
+    const snap = await getDoc(userRef);
+
+    if (snap.exists()) {
+      const data = snap.data();
+      setShowAnswerAfterIncorrect(
+        data?.studySettings?.showAnswerAfterIncorrect ?? true
+      );
+    }
+  };
+
 
   const handleRestartQuiz = () => {
     setQuizIndex(0);
@@ -139,8 +156,10 @@ function DeckPage() {
     if (user) {
       loadFlashcards();
       loadDeckTitle();
+      loadStudySettings();
     }
   }, [user, deckId]);
+
 
   // Handle Enter key press in quiz input
   const handleKeyPress = (e) => {
@@ -164,13 +183,13 @@ function DeckPage() {
         <div className="quiz-section">
           {!quizDone && (
             <div className="quiz-progress">
-              <div 
-                className="quiz-progress-bar" 
+              <div
+                className="quiz-progress-bar"
                 style={{ width: `${((quizIndex + 1) / flashcards.length) * 100}%` }}
               ></div>
             </div>
           )}
-          
+
           {quizDone ? (
             <div className="quiz-results">
               <h3>{getScoreEmoji()} Quiz Complete!</h3>
@@ -196,16 +215,20 @@ function DeckPage() {
               <div className="quiz-header">
                 <h4>Question {quizIndex + 1} of {flashcards.length}</h4>
               </div>
-              
+
               <p className="quiz-question">{flashcards[quizIndex].question}</p>
-              
+
               {showFeedback ? (
                 <div className={`feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
                   <div className="feedback-icon">
                     {isCorrect ? '✅' : '❌'}
                   </div>
                   <div className="feedback-text">
-                    {isCorrect ? 'Correct!' : `Incorrect. The answer is: ${flashcards[quizIndex].answer}`}
+                    {isCorrect
+                      ? "Correct!"
+                      : showAnswerAfterIncorrect
+                        ? `Incorrect. The answer is: ${flashcards[quizIndex].answer}`
+                        : "Incorrect."}
                   </div>
                 </div>
               ) : (
@@ -218,7 +241,7 @@ function DeckPage() {
                     placeholder="Type your answer here..."
                     autoFocus
                   />
-                  <button 
+                  <button
                     onClick={handleSubmitAnswer}
                     disabled={!userAnswer.trim()}
                     className="submit-btn"
