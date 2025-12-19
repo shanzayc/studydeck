@@ -4,10 +4,11 @@
 
 # Why StudyDeck?
 
-**StudyDeck is designed to help students study more effectively using active recall.
+**StudyDeck** is designed to help students study more effectively using active recall.
 Unlike static notes, flashcards force learners to retrieve information from memory,
 which improves long-term retention. StudyDeck provides a clean, distraction-free
 interface with structured decks and quiz feedback to support consistent studying.
+
 ---
 
 ## Features
