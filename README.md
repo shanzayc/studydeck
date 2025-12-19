@@ -9,6 +9,11 @@ Unlike static notes, flashcards force learners to retrieve information from memo
 which improves long-term retention. StudyDeck provides a clean, distraction-free
 interface with structured decks and quiz feedback to support consistent studying.
 
+## Live Demo
+
+A live deployment exists (AWS S3 + CloudFront), but the public link is intentionally not shared to avoid exposing authentication and billing-backed services.
+
+Screenshots below demonstrate full functionality.
 ---
 
 ## Features
