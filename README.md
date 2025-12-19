@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# StudyDeck 📚
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**StudyDeck** is a flashcard web application that helps users create study decks, add flashcards, and practice using an interactive quiz mode. The app uses Firebase for authentication and data storage, and is deployed on AWS using S3 and CloudFront.
 
-## Available Scripts
+🔗 **Live Demo:**  
+https://d3afn88h0hyvwn.cloudfront.net
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**
+  - Sign up, log in, log out (Firebase Authentication)
+  - Secure password reset via email
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Study Decks**
+  - Create and view decks for different subjects
+  - Add flashcards (question + answer)
 
-### `npm test`
+- **Quiz Mode**
+  - Practice flashcards one by one
+  - Immediate feedback (correct / incorrect)
+  - Final score and percentage at the end
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Study Settings**
+  - Toggle: *Show answer after incorrect*
 
-### `npm run build`
+- **Account Management**
+  - Update profile information
+  - Send password reset email
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Coming Soon
+- Study streak tracking  
+- Email notifications  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+### Frontend
+- React (Create React App)
+- React Router
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend / Database
+- Firebase Authentication
+- Firebase Firestore
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Deployment (AWS)
+- Amazon S3 (static hosting)
+- Amazon CloudFront (CDN + HTTPS)
+- CloudFront custom error responses for SPA routing
+- AWS WAF (monitor mode)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Architecture Overview
 
-## Learn More
+- The frontend is a single-page React application using React Router.
+- Firebase Authentication handles user sign-in, sign-up, and password resets.
+- User data, decks, and flashcards are stored in Firebase Firestore.
+- The production build is hosted on Amazon S3 and delivered globally using CloudFront.
+- CloudFront custom error responses are used to support client-side routing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future Improvements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Implement accurate study streak tracking based on completed study sessions.
+- Add scheduled email notifications for study reminders.
+- Improve quiz analytics and progress tracking.
+- Add spaced repetition support.
 
-### Code Splitting
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you’d like to connect or have questions about this project:
 
-### Analyzing the Bundle Size
+- **GitHub:** https://github.com/shanzayc
+- **LinkedIn:** https://www.linkedin.com/in/shanzaychaudhry/
+- **Email:** shanzayc@outlook.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to reach out!
